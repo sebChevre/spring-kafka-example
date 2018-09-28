@@ -1,0 +1,9 @@
+#kafka endpoint
+kafka:
+  bootstrapAddress: manager.prd.ju.globaz.ch:9093
+
+#Topic de test
+test:
+  topic:
+    name:kafka-topic
+

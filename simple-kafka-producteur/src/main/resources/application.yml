@@ -1,0 +1,14 @@
+#kafka endpoint
+kafka:
+  bootstrapAddress: localhost:9092
+
+#Topic de test
+test:
+  topic:
+    name: kafka-topic
+
+#Spring profiles
+spring:
+  profiles:
+    active: prod
+
