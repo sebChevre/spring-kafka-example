@@ -5,7 +5,7 @@ kafka:
 #Topic de test
 test:
   topic:
-    name: kafka-topic
+    name: kafka-topic-json
 
 #Spring profiles
 spring:

@@ -5,9 +5,18 @@ kafka:
 #Topic de test
 test:
   topic:
-    name: kafka-topic
+    name: kafka-topic-json
 
 #Spring profiles
 spring:
   profiles:
     active: prod
+
+
+  kafka:
+    consumer:
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: ch.globaz.devsecops.common

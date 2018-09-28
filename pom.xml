@@ -11,6 +11,7 @@
     <modules>
         <module>simple-kafka-producteur</module>
         <module>simple-kafka-consommateur</module>
+        <module>kafka-common</module>
     </modules>
 
 

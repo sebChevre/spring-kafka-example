@@ -1,9 +1,12 @@
-package ch.globaz.devsecops.kafka.simpleStringConsummer.producteur;
+package ch.globaz.devsecops.kafka.consommateur.consommateur;
 
 
+import ch.globaz.devsecops.kafka.common.HelloWorld;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.annotation.PartitionOffset;
 import org.springframework.kafka.annotation.TopicPartition;
+
+
 
 /**
  * Classe consommatrices des messages kafka
@@ -15,7 +18,7 @@ public class MessageConsommateur {
                     //consommation des messages depuis le denut, a des fins de tests
                     partitionOffsets = {@PartitionOffset(partition = "0", initialOffset = "0")}
             )})
-    public void stringListener(String message) {
+    public void stringListener(HelloWorld message) {
         System.out.println("Message reçu: " + message);
 
     }

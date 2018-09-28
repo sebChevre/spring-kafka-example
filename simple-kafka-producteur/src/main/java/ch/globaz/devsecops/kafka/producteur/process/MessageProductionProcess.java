@@ -1,11 +1,13 @@
-package ch.globaz.devsecops.kafka.simpleStringProducer.process;
+package ch.globaz.devsecops.kafka.producteur.process;
 
-import ch.globaz.devsecops.kafka.simpleStringProducer.producteur.MessageProducteur;
+
+import ch.globaz.devsecops.kafka.common.HelloWorld;
+import ch.globaz.devsecops.kafka.producteur.producteur.MessageProducteur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
+
 
 /**
  * Process async de production de message, schedulé par Spring
@@ -25,7 +27,8 @@ public class MessageProductionProcess {
     @Scheduled(fixedRate = 250)
     public void startProduction(){
         compteurMessage ++;
-        producteur.sendMessage(String.format("Hello World, message no: %d,timestamp: %d", compteurMessage, new Date().getTime()));
-        System.out.println("Sending message, no " + compteurMessage);
+        HelloWorld hw = new HelloWorld("Hello world", compteurMessage);
+        producteur.sendMessage(hw);
+        System.out.println("Sending message: " + hw);
     }
 }
