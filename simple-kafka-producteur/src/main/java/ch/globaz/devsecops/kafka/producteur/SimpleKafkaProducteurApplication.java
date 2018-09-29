@@ -15,8 +15,7 @@ public class SimpleKafkaProducteurApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SimpleKafkaProducteurApplication.class);
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.addTrustedPPackages("");
+
 
     }
 

@@ -25,14 +25,25 @@ public class KafkaConsommateurConfig {
     private String bootstrapAddress;
 
     public ConsumerFactory<String, HelloWorld> consumerFactory() {
+
+        final JsonDeserializer<HelloWorld> jsonDeserializer = new JsonDeserializer<>();
+        jsonDeserializer.addTrustedPackages("ch.globaz.devsecops.kafka.common");
+
+
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, GROUP_NAME);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        props.put(JsonDeserializer.VALUE_DEFAULT_TYPE,"ch.globaz.devsecops.kafka.common.HelloWorld");
-        props.put(JsonDeserializer.TRUSTED_PACKAGES, "ch.globaz.devsecops.kafka.common");
-        return new DefaultKafkaConsumerFactory(props, new StringDeserializer(), new JsonDeserializer<HelloWorld>());
+        //props.put(JsonDeserializer.VALUE_DEFAULT_TYPE,"ch.globaz.devsecops.kafka.common.HelloWorld");
+        //props.put(JsonDeserializer.TRUSTED_PACKAGES, "ch.globaz.devsecops.kafka.common");
+
+        final DefaultKafkaConsumerFactory<String, HelloWorld> defaultKafkaConsumerFactory = new DefaultKafkaConsumerFactory<>(props);
+
+        defaultKafkaConsumerFactory.setKeyDeserializer(new StringDeserializer());
+        defaultKafkaConsumerFactory.setValueDeserializer(jsonDeserializer);
+
+        return defaultKafkaConsumerFactory;
     }
 
 

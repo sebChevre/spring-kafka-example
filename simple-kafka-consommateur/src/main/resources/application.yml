@@ -10,13 +10,4 @@ test:
 #Spring profiles
 spring:
   profiles:
-    active: prod
-
-
-  kafka:
-    consumer:
-      properties:
-        spring:
-          json:
-            trusted:
-              packages: ch.globaz.devsecops.common
+    active:

@@ -10,5 +10,5 @@ test:
 #Spring profiles
 spring:
   profiles:
-    active: prod
+    active:
 
