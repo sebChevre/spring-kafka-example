@@ -26,9 +26,14 @@ public class MessageProductionProcess {
 
     @Scheduled(fixedRate = 250)
     public void startProduction(){
-        compteurMessage ++;
-        HelloWorld hw = new HelloWorld("Hello world", compteurMessage);
-        producteur.sendMessage(hw);
-        System.out.println("Sending message: " + hw);
+        if(compteurMessage < 20){
+            compteurMessage ++;
+            HelloWorld hw = new HelloWorld("Hello world", compteurMessage);
+            producteur.sendMessage(hw);
+            System.out.println("Sending message: " + hw);
+        }else{
+            System.exit(0);
+        }
+
     }
 }

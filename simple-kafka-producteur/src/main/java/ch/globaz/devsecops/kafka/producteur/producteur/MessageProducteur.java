@@ -17,6 +17,7 @@ public class MessageProducteur {
 
 
     public void sendMessage(HelloWorld message) {
+
         kafkaTemplate.send(topicName, message);
     }
 

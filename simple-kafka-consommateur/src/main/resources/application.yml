@@ -5,7 +5,10 @@ kafka:
 #Topic de test
 test:
   topic:
-    name: kafka-topic-json
+    name: kafka-topic-json2
+  retry:
+    topic:
+      name: kafka-topic-json2-retry
 
 #Spring profiles
 spring:

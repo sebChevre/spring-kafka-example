@@ -1,4 +1,4 @@
-package ch.globaz.devsecops.kafka.producteur.producteur;
+package ch.globaz.devsecops.kafka.consommateur.producteur;
 
 import ch.globaz.devsecops.kafka.common.HelloWorld;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ public class MessageProducteur {
     private KafkaTemplate<String, HelloWorld> kafkaTemplate;
 
 
-    @Value(value = "${test.topic.name}")
+    @Value(value = "${test.retry.topic.name}")
     private String topicName;
 
 
