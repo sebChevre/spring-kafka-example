@@ -3,6 +3,7 @@ package ch.globaz.devsecops.kafka.consommateur.config;
 
 import ch.globaz.devsecops.kafka.common.HelloWorld;
 import ch.globaz.devsecops.kafka.consommateur.consommateur.MessageConsommateur;
+import ch.globaz.devsecops.kafka.consommateur.producteur.MessageProducteur;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,9 +75,8 @@ public class KafkaConsommateurConfig {
         return (message, e) -> {
             System.out.println(String.format("error handler for message: %s [%s], exception: %s", message.getPayload(), message.getHeaders(), e.getMessage()));
             MessageListenerContainer listenerContainer = registry.getListenerContainer("listener");
-            listenerContainer.stop();
+            messageProducer().sendMessage((HelloWorld) message.getPayload());
             return null;
-            //throw new RuntimeException(e);
         };
     }
 
@@ -84,6 +84,10 @@ public class KafkaConsommateurConfig {
     KafkaListenerEndpointRegistry registry;
 
 
+    @Bean
+    public MessageProducteur messageProducer() {
+        return new MessageProducteur();
+    }
 
 
 }

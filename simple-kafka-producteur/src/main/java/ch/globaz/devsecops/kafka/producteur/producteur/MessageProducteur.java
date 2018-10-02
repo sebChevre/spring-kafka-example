@@ -12,7 +12,7 @@ public class MessageProducteur {
     private KafkaTemplate<String, HelloWorld> kafkaTemplate;
 
 
-    @Value(value = "${test.topic.name}")
+    @Value(value = "${test.retry.topic.name}")
     private String topicName;
 
 

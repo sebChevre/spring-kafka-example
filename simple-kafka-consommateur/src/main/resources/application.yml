@@ -13,4 +13,4 @@ test:
 #Spring profiles
 spring:
   profiles:
-    active:
+    active: vm
