@@ -5,7 +5,7 @@ kafka:
 #Topic de test
 test:
   topic:
-    name: kafka-topic-json2
+    name: kafka-topic-json
   retry:
     topic:
       name: kafka-topic-json2-retry

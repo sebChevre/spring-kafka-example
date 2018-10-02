@@ -5,5 +5,5 @@ kafka:
 #Topic de test
 test:
   topic:
-    name: kafka-topic-json-5
+    name: kafka-topic-json
 
