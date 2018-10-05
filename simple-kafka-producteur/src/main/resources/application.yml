@@ -2,10 +2,12 @@
 kafka:
   bootstrapAddress: localhost:9092
 
-#Topic de test
-test:
+#Topic
   topic:
-    name: kafka-topic-json
+    test:
+      name: kafka-topic-json
+      consumer-group:
+        name: kafka-topic-group
 
 #Spring profiles
 spring:

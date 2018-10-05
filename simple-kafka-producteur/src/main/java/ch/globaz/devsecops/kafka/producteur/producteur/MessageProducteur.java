@@ -11,10 +11,8 @@ public class MessageProducteur {
     @Autowired
     private KafkaTemplate<String, HelloWorld> kafkaTemplate;
 
-
-    @Value(value = "${test.topic.name}")
+    @Value(value = "${kafka.topic.test.name}")
     private String topicName;
-
 
     public void sendMessage(HelloWorld message) {
         kafkaTemplate.send(topicName, message);

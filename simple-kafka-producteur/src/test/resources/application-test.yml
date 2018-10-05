@@ -1,0 +1,9 @@
+kafka:
+  bootstrapAddress: ${spring.embedded.kafka.brokers}
+
+  #Topic
+  topic:
+    test:
+      name: kafka-topic-json
+      consumer-group:
+        name: kafka-topic-group

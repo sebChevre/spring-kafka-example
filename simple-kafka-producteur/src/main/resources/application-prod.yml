@@ -2,8 +2,10 @@
 kafka:
   bootstrapAddress: manager.prd.ju.globaz.ch:9093
 
-#Topic de test
-test:
+  #Topic
   topic:
-    name: kafka-topic-json-5
+    test:
+      name: kafka-topic-json
+      consumer-group:
+        name: kafka-topic-group
 
